@@ -6,10 +6,6 @@ $taskName = "Agent Setup GitHub Sync"
 if (-not (Test-Path -LiteralPath $syncScript)) {
     throw "Cannot find $syncScript. Clone the agent-setup repository first."
 }
-if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
-    throw "Git is required. Install Git, reopen PowerShell, and run this script again."
-}
-
 $powerShell = (Get-Process -Id $PID).Path
 $argument = '-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File "' + $syncScript + '"'
 $action = New-ScheduledTaskAction -Execute $powerShell -Argument $argument
