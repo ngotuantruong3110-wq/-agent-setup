@@ -1,30 +1,25 @@
 # Agent Setup
 
-Shared setup instructions for Antigravity and Codex. This repository stores installer scripts and setup notes, not credentials or copies of upstream projects.
+One-command setup and Windows sign-in updates for Antigravity and Codex. The repository stores installation scripts only, not credentials.
 
-## First setup on each Windows computer
+## Install on each Windows computer
 
-Install Git, Antigravity CLI (`agy`), and Astral uv (`uv`). Codex CLI (`codex`) is optional. Without it, install Superpowers and Ponytail for Codex from the app's Plugins page. Clone this repository, then run PowerShell:
+Open PowerShell and run:
 
 ```powershell
-git clone https://github.com/ngotuantruong3110-wq/-agent-setup.git
-cd -agent-setup
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\install.ps1
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\enable-login-sync.ps1
+irm https://raw.githubusercontent.com/ngotuantruong3110-wq/-agent-setup/main/quick-setup.ps1 | iex
 ```
 
-The first script installs or refreshes Superpowers, Ponytail, and Graphify. The second registers a per-user Windows logon task.
+Install Antigravity first. The script installs uv if needed, installs or refreshes Superpowers, Ponytail, and Graphify, then registers a per-user sign-in task. If Codex CLI is unavailable, install its plugins from the Codex app.
 
 ## After setup
 
-At each Windows sign-in, the task pulls the latest setup files from this repository, refreshes Antigravity plugins and Graphify, and refreshes Codex plugin marketplaces. The log is saved at `%LOCALAPPDATA%\AgentSetup\sync.log`.
+At each Windows sign-in, a background task downloads the latest setup files and refreshes the installed tools. Logs are saved to `%LOCALAPPDATA%\AgentSetup\sync.log`. Run the one-line command again to install or refresh immediately.
 
-Run `git pull` and `install.ps1` manually after changing prerequisites or adding a new tool. Set up the task once on every computer. Signing in to GitHub alone cannot install local software. VS Code has separate built-in Settings Sync for its settings and extensions.
+GitHub sign-in alone does not install software. VS Code has its own built-in Settings Sync for settings and extensions. Never commit API keys, access tokens, or passwords here.
 
 ## Upstream projects
 
 - [Graphify](https://github.com/Graphify-Labs/graphify)
 - [Superpowers](https://github.com/obra/superpowers)
 - [Ponytail](https://github.com/DietrichGebert/ponytail)
-
-Never commit API keys, access tokens, or passwords here.
