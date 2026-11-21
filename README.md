@@ -9,8 +9,8 @@ Install Git, Antigravity CLI (`agy`), Codex CLI (`codex`), and Astral uv (`uv`).
 ```powershell
 git clone https://github.com/ngotuantruong3110-wq/-agent-setup.git
 cd -agent-setup
-.\install.ps1
-.\enable-login-sync.ps1
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\install.ps1
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\enable-login-sync.ps1
 ```
 
 The first script installs or refreshes Superpowers, Ponytail, and Graphify. The second registers a per-user Windows logon task.
@@ -19,7 +19,7 @@ The first script installs or refreshes Superpowers, Ponytail, and Graphify. The 
 
 At each Windows sign-in, the task pulls the latest setup files from this repository, refreshes Antigravity plugins and Graphify, and refreshes Codex plugin marketplaces. The log is saved at `%LOCALAPPDATA%\AgentSetup\sync.log`.
 
-Run `git pull` and `.\install.ps1` manually after changing prerequisites or adding a new tool. Set up the task once on every computer. Signing in to GitHub alone cannot install local software. VS Code has separate built-in Settings Sync for its settings and extensions.
+Run `git pull` and `install.ps1` manually after changing prerequisites or adding a new tool. Set up the task once on every computer. Signing in to GitHub alone cannot install local software. VS Code has separate built-in Settings Sync for its settings and extensions.
 
 ## Upstream projects
 
