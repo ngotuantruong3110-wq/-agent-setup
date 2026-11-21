@@ -4,7 +4,7 @@ Shared setup instructions for Antigravity and Codex. This repository stores inst
 
 ## First setup on each Windows computer
 
-Install Git, Antigravity CLI (`agy`), Codex CLI (`codex`), and Astral uv (`uv`). Clone this repository, then run PowerShell:
+Install Git, Antigravity CLI (`agy`), and Astral uv (`uv`). Codex CLI (`codex`) is optional. Without it, install Superpowers and Ponytail for Codex from the app's Plugins page. Clone this repository, then run PowerShell:
 
 ```powershell
 git clone https://github.com/ngotuantruong3110-wq/-agent-setup.git
