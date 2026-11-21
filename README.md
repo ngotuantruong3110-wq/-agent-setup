@@ -1,22 +1,25 @@
 # Agent Setup
 
-Shared setup instructions for Antigravity and Codex. This repository contains installer commands, not copies of the upstream projects or credentials.
+Shared setup instructions for Antigravity and Codex. This repository stores installer scripts and setup notes, not credentials or copies of upstream projects.
 
-## Install on Windows
+## First setup on each Windows computer
 
-Clone this repository, then run PowerShell:
+Install Git, Antigravity CLI (`agy`), Codex CLI (`codex`), and Astral uv (`uv`). Clone this repository, then run PowerShell:
 
 ```powershell
 git clone https://github.com/ngotuantruong3110-wq/-agent-setup.git
 cd -agent-setup
 .\install.ps1
+.\enable-login-sync.ps1
 ```
 
-The installer expects Antigravity CLI (`agy`), Codex CLI (`codex`), and Astral uv (`uv`) to be installed and available on PATH. It installs or refreshes Superpowers, Ponytail, and Graphify for both agents.
+The first script installs or refreshes Superpowers, Ponytail, and Graphify. The second registers a per-user Windows logon task.
 
-## Updating
+## After setup
 
-Run `git pull` in this repository and run `.\install.ps1` again on each computer. The installer asks each upstream tool to install or upgrade its latest version. Signing into GitHub by itself does not install tools or sync their local plugin files.
+At each Windows sign-in, the task pulls the latest setup files from this repository, refreshes Antigravity plugins and Graphify, and refreshes Codex plugin marketplaces. The log is saved at `%LOCALAPPDATA%\AgentSetup\sync.log`.
+
+Run `git pull` and `.\install.ps1` manually after changing prerequisites or adding a new tool. Set up the task once on every computer. Signing in to GitHub alone cannot install local software. VS Code has separate built-in Settings Sync for its settings and extensions.
 
 ## Upstream projects
 
