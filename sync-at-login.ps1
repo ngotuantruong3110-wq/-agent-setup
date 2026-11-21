@@ -32,6 +32,13 @@ try {
 
     if (Get-Command codex -ErrorAction SilentlyContinue) {
         codex plugin marketplace upgrade
+        $installedPlugins = codex plugin list 2>&1 | Out-String
+        if ($installedPlugins -notmatch "superpowers") {
+            codex plugin add superpowers@superpowers-marketplace
+        }
+        if ($installedPlugins -notmatch "ponytail") {
+            codex plugin add ponytail@ponytail
+        }
     }
 }
 finally {
