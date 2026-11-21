@@ -19,7 +19,7 @@ graphify install --platform codex
 if (Get-Command codex -ErrorAction SilentlyContinue) {
     Write-Host "Installing or refreshing Codex plugins..."
     codex plugin marketplace add obra/superpowers-marketplace
-    codex plugin install superpowers@superpowers-marketplace
+    codex plugin add superpowers@superpowers-marketplace
     codex plugin marketplace add DietrichGebert/ponytail
     codex plugin add ponytail@ponytail
 } else {
